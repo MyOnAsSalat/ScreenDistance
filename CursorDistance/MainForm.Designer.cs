@@ -1,6 +1,6 @@
 ﻿namespace CursorDistance
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.TurnButton = new System.Windows.Forms.Button();
+            this.MetersDistanceLabel = new System.Windows.Forms.Label();
+            this.MultiplierTextBox = new System.Windows.Forms.TextBox();
+            this.PixelDistanceLabel = new System.Windows.Forms.Label();
+            this.MultiplierTextLabel = new System.Windows.Forms.Label();
+            this.AzimuthLabel = new System.Windows.Forms.Label();
+            this.OverlayButton = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.Settings = new System.Windows.Forms.TabPage();
@@ -46,78 +46,78 @@
             this.Settings.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // TurnButton
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(6, 300);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(390, 64);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "OFF";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.TurnButton.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TurnButton.Location = new System.Drawing.Point(6, 300);
+            this.TurnButton.Name = "TurnButton";
+            this.TurnButton.Size = new System.Drawing.Size(390, 64);
+            this.TurnButton.TabIndex = 0;
+            this.TurnButton.Text = "OFF";
+            this.TurnButton.UseVisualStyleBackColor = true;
+            this.TurnButton.Click += new System.EventHandler(this.TurnButton_Click);
             // 
-            // label1
+            // MetersDistanceLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(20, 77);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 65);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "0";
+            this.MetersDistanceLabel.AutoSize = true;
+            this.MetersDistanceLabel.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.MetersDistanceLabel.Location = new System.Drawing.Point(20, 77);
+            this.MetersDistanceLabel.Name = "MetersDistanceLabel";
+            this.MetersDistanceLabel.Size = new System.Drawing.Size(54, 65);
+            this.MetersDistanceLabel.TabIndex = 1;
+            this.MetersDistanceLabel.Text = "0";
             // 
-            // textBox1
+            // MultiplierTextBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(20, 210);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(138, 71);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "1.00";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.MultiplierTextBox.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.MultiplierTextBox.Location = new System.Drawing.Point(20, 210);
+            this.MultiplierTextBox.Name = "MultiplierTextBox";
+            this.MultiplierTextBox.Size = new System.Drawing.Size(138, 71);
+            this.MultiplierTextBox.TabIndex = 2;
+            this.MultiplierTextBox.Text = "1.00";
+            this.MultiplierTextBox.TextChanged += new System.EventHandler(this.MultiplierTextBox_TextChanged);
+            this.MultiplierTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MuktiplierTextbox_KeyPress);
             // 
-            // label2
+            // PixelDistanceLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(20, 3);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 65);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "0";
+            this.PixelDistanceLabel.AutoSize = true;
+            this.PixelDistanceLabel.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.PixelDistanceLabel.Location = new System.Drawing.Point(20, 3);
+            this.PixelDistanceLabel.Name = "PixelDistanceLabel";
+            this.PixelDistanceLabel.Size = new System.Drawing.Size(54, 65);
+            this.PixelDistanceLabel.TabIndex = 3;
+            this.PixelDistanceLabel.Text = "0";
             // 
-            // label5
+            // MultiplierTextLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(164, 213);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(232, 65);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Multiplier";
+            this.MultiplierTextLabel.AutoSize = true;
+            this.MultiplierTextLabel.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.MultiplierTextLabel.Location = new System.Drawing.Point(164, 213);
+            this.MultiplierTextLabel.Name = "MultiplierTextLabel";
+            this.MultiplierTextLabel.Size = new System.Drawing.Size(232, 65);
+            this.MultiplierTextLabel.TabIndex = 6;
+            this.MultiplierTextLabel.Text = "Multiplier";
             // 
-            // label6
+            // AzimuthLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(20, 142);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 65);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "0";
+            this.AzimuthLabel.AutoSize = true;
+            this.AzimuthLabel.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AzimuthLabel.Location = new System.Drawing.Point(20, 142);
+            this.AzimuthLabel.Name = "AzimuthLabel";
+            this.AzimuthLabel.Size = new System.Drawing.Size(54, 65);
+            this.AzimuthLabel.TabIndex = 7;
+            this.AzimuthLabel.Text = "0";
             // 
-            // button2
+            // OverlayButton
             // 
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(6, 370);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(390, 65);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Overlay OFF";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.OverlayButton.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.OverlayButton.Location = new System.Drawing.Point(6, 370);
+            this.OverlayButton.Name = "OverlayButton";
+            this.OverlayButton.Size = new System.Drawing.Size(390, 65);
+            this.OverlayButton.TabIndex = 8;
+            this.OverlayButton.Text = "Overlay OFF";
+            this.OverlayButton.UseVisualStyleBackColor = true;
+            this.OverlayButton.Click += new System.EventHandler(this.OverlayButton_Click);
             // 
             // tabControl1
             // 
@@ -132,13 +132,13 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.PixelDistanceLabel);
+            this.tabPage1.Controls.Add(this.OverlayButton);
+            this.tabPage1.Controls.Add(this.MetersDistanceLabel);
+            this.tabPage1.Controls.Add(this.TurnButton);
+            this.tabPage1.Controls.Add(this.MultiplierTextLabel);
+            this.tabPage1.Controls.Add(this.AzimuthLabel);
+            this.tabPage1.Controls.Add(this.MultiplierTextBox);
             this.tabPage1.Location = new System.Drawing.Point(4, 30);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -202,16 +202,16 @@
             this.LeftMouseButtonCheckbox.UseVisualStyleBackColor = true;
             this.LeftMouseButtonCheckbox.CheckedChanged += new System.EventHandler(this.LeftMouseButtonCheckbox_CheckedChanged);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(417, 476);
             this.Controls.Add(this.tabControl1);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Distance";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -223,13 +223,13 @@
 
         #endregion
 
-        private Button button1;
-        private Label label1;
-        private TextBox textBox1;
-        private Label label2;
-        private Label label5;
-        private Label label6;
-        private Button button2;
+        private Button TurnButton;
+        private Label MetersDistanceLabel;
+        private TextBox MultiplierTextBox;
+        private Label PixelDistanceLabel;
+        private Label MultiplierTextLabel;
+        private Label AzimuthLabel;
+        private Button OverlayButton;
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage Settings;

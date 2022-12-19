@@ -3,66 +3,65 @@ using System.Collections.Generic;
 
 namespace CursorDistance
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private HookDistanceService service;
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
 
-        private async void Form1_Load(object sender, EventArgs e)
+        private async void MainForm_Load(object sender, EventArgs e)
         {
             service = new HookDistanceService();
-            //await web.Run();
             service.Notify += DistanceUpdated;
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private async void TurnButton_Click(object sender, EventArgs e)
         {
             if (service.isSubscribed)
             {
                 service.Unsubscribe();
-                button1.Text = "OFF";
-                button1.BackColor = Color.White;
+                TurnButton.Text = "OFF";
+                TurnButton.BackColor = Color.White;
             }
             else
             {
                 service.Subscribe();
-                button1.Text = "ON";
-                button1.BackColor = Color.Green;
+                TurnButton.Text = "ON";
+                TurnButton.BackColor = Color.Green;
             }
         }
         private void DistanceUpdated(DistanceResult result)
         {
-            label2.Text = (result.Pixels).ToString("#") + " Pixels";
-            label1.Text = (result.Pixels * double.Parse(textBox1.Text)).ToString("#") + " Meters";
-            label6.Text = result.Azimuth.ToString("#.#") + "º";
+            PixelDistanceLabel.Text = (result.Pixels).ToString("#") + " Pixels";
+            MetersDistanceLabel.Text = (result.Pixels * double.Parse(MultiplierTextBox.Text)).ToString("#") + " Meters";
+            AzimuthLabel.Text = result.Azimuth.ToString("#.#") + "º";
             if (frm != null)
-                frm.meters = (result.Pixels * double.Parse(textBox1.Text)).ToString("#");
+                frm.meters = (result.Pixels * double.Parse(MultiplierTextBox.Text)).ToString("#");
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void MultiplierTextBox_TextChanged(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text.Replace(",", ".");
+            MultiplierTextBox.Text = MultiplierTextBox.Text.Replace(",", ".");
         }
         Overlay? frm;
-        private void button2_Click(object sender, EventArgs e)
+        private void OverlayButton_Click(object sender, EventArgs e)
         {
             if (frm == null)
             {
                 frm = new Overlay();
                 frm.Show();
-                button2.Text = "Overlay ON";
-                button2.BackColor = Color.Green;
+                OverlayButton.Text = "Overlay ON";
+                OverlayButton.BackColor = Color.Green;
             }
             else
             {
                 frm.isWorking = false;
                 frm.Close();
                 frm = null;
-                button2.Text = "Overlay OFF";
-                button2.BackColor = Color.White;
+                OverlayButton.Text = "Overlay OFF";
+                OverlayButton.BackColor = Color.White;
             }
         }
 
@@ -90,7 +89,7 @@ namespace CursorDistance
             }
         }
 
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        private void MuktiplierTextbox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
             (e.KeyChar != '.'))
