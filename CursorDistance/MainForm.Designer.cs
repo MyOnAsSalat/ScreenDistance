@@ -41,6 +41,7 @@
             this.MiddleMouseButtonCheckbox = new System.Windows.Forms.CheckBox();
             this.RightMouseButtonCheckbox = new System.Windows.Forms.CheckBox();
             this.LeftMouseButtonCheckbox = new System.Windows.Forms.CheckBox();
+            this.IsAzimuthShowingCheckBox = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.Settings.SuspendLayout();
@@ -76,7 +77,7 @@
             this.MultiplierTextBox.TabIndex = 2;
             this.MultiplierTextBox.Text = "1.00";
             this.MultiplierTextBox.TextChanged += new System.EventHandler(this.MultiplierTextBox_TextChanged);
-            this.MultiplierTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MuktiplierTextbox_KeyPress);
+            this.MultiplierTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MultiplierTextbox_KeyPress);
             // 
             // PixelDistanceLabel
             // 
@@ -124,7 +125,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.Settings);
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tabControl1.Location = new System.Drawing.Point(12, 2);
+            this.tabControl1.Location = new System.Drawing.Point(-5, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(410, 473);
@@ -149,6 +150,7 @@
             // 
             // Settings
             // 
+            this.Settings.Controls.Add(this.IsAzimuthShowingCheckBox);
             this.Settings.Controls.Add(this.MiddleMouseButtonCheckbox);
             this.Settings.Controls.Add(this.RightMouseButtonCheckbox);
             this.Settings.Controls.Add(this.LeftMouseButtonCheckbox);
@@ -166,7 +168,7 @@
             this.MiddleMouseButtonCheckbox.Checked = true;
             this.MiddleMouseButtonCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.MiddleMouseButtonCheckbox.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.MiddleMouseButtonCheckbox.Location = new System.Drawing.Point(6, 82);
+            this.MiddleMouseButtonCheckbox.Location = new System.Drawing.Point(13, 82);
             this.MiddleMouseButtonCheckbox.Name = "MiddleMouseButtonCheckbox";
             this.MiddleMouseButtonCheckbox.Size = new System.Drawing.Size(139, 32);
             this.MiddleMouseButtonCheckbox.TabIndex = 2;
@@ -180,7 +182,7 @@
             this.RightMouseButtonCheckbox.Checked = true;
             this.RightMouseButtonCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.RightMouseButtonCheckbox.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RightMouseButtonCheckbox.Location = new System.Drawing.Point(6, 44);
+            this.RightMouseButtonCheckbox.Location = new System.Drawing.Point(13, 44);
             this.RightMouseButtonCheckbox.Name = "RightMouseButtonCheckbox";
             this.RightMouseButtonCheckbox.Size = new System.Drawing.Size(124, 32);
             this.RightMouseButtonCheckbox.TabIndex = 1;
@@ -194,7 +196,7 @@
             this.LeftMouseButtonCheckbox.Checked = true;
             this.LeftMouseButtonCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.LeftMouseButtonCheckbox.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LeftMouseButtonCheckbox.Location = new System.Drawing.Point(6, 6);
+            this.LeftMouseButtonCheckbox.Location = new System.Drawing.Point(13, 6);
             this.LeftMouseButtonCheckbox.Name = "LeftMouseButtonCheckbox";
             this.LeftMouseButtonCheckbox.Size = new System.Drawing.Size(109, 32);
             this.LeftMouseButtonCheckbox.TabIndex = 0;
@@ -202,15 +204,29 @@
             this.LeftMouseButtonCheckbox.UseVisualStyleBackColor = true;
             this.LeftMouseButtonCheckbox.CheckedChanged += new System.EventHandler(this.LeftMouseButtonCheckbox_CheckedChanged);
             // 
+            // IsAzimuthShowingCheckBox
+            // 
+            this.IsAzimuthShowingCheckBox.AutoSize = true;
+            this.IsAzimuthShowingCheckBox.Checked = true;
+            this.IsAzimuthShowingCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.IsAzimuthShowingCheckBox.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.IsAzimuthShowingCheckBox.Location = new System.Drawing.Point(13, 120);
+            this.IsAzimuthShowingCheckBox.Name = "IsAzimuthShowingCheckBox";
+            this.IsAzimuthShowingCheckBox.Size = new System.Drawing.Size(250, 32);
+            this.IsAzimuthShowingCheckBox.TabIndex = 3;
+            this.IsAzimuthShowingCheckBox.Text = "Show Azimuth in Overlay";
+            this.IsAzimuthShowingCheckBox.UseVisualStyleBackColor = true;
+            this.IsAzimuthShowingCheckBox.CheckedChanged += new System.EventHandler(this.IsAzimuthShowingCheckBox_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(417, 476);
+            this.ClientSize = new System.Drawing.Size(400, 476);
             this.Controls.Add(this.tabControl1);
             this.Name = "MainForm";
             this.Text = "Distance";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -236,5 +252,6 @@
         private CheckBox LeftMouseButtonCheckbox;
         private CheckBox MiddleMouseButtonCheckbox;
         private CheckBox RightMouseButtonCheckbox;
+        private CheckBox IsAzimuthShowingCheckBox;
     }
 }

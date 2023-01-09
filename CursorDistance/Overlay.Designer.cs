@@ -36,6 +36,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "Overlay";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "Overlay";
             this.Load += new System.EventHandler(this.Overlay_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Overlay_Paint);

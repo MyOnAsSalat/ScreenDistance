@@ -15,9 +15,9 @@ namespace Distance.Core
         private Point first = new Point();
         [DllImport("user32.dll")]
         private static extern bool GetCursorPos(ref Point lpPoint);
-        public bool EnableRightClick = true;
-        public bool EnableLeftClick = true;
-        public bool EnableMiddleClick = true;
+        public bool EnableRightClick { get; set; } = true;
+        public bool EnableLeftClick { get; set; } = true;
+        public bool EnableMiddleClick { get; set; } = true;
         private void GlobalHookMouseDownExt(object sender, MouseEventExtArgs e)
         {
             if (CheckButton(e.Button))
@@ -32,7 +32,7 @@ namespace Distance.Core
                     Point second = new Point();
                     GetCursorPos(ref second);
                     var result = Calculation.GetDistance(first,second, Multiplier);
-                    Notify?.Invoke(result);
+                    Task.Run(()=> Notify?.Invoke(result));
                     isFisrt = true;
                 }
             }

@@ -13,6 +13,7 @@ namespace CursorDistance
 
         private async void MainForm_Load(object sender, EventArgs e)
         {
+            CheckForIllegalCrossThreadCalls = false;
             service = new HookDistanceService();
             service.Notify += DistanceUpdated;
         }
@@ -34,11 +35,14 @@ namespace CursorDistance
         }
         private void DistanceUpdated(DistanceResult result)
         {
-            PixelDistanceLabel.Text = (result.Pixels).ToString("#") + " Pixels";
-            MetersDistanceLabel.Text = (result.Pixels * double.Parse(MultiplierTextBox.Text)).ToString("#") + " Meters";
+            PixelDistanceLabel.Text = (result.Pixels).ToString() + " Pixels";
+            MetersDistanceLabel.Text = (result.Pixels * double.Parse(MultiplierTextBox.Text)).ToString() + " Meters";
             AzimuthLabel.Text = result.Azimuth.ToString("#.#") + "º";
             if (frm != null)
-                frm.meters = (result.Pixels * double.Parse(MultiplierTextBox.Text)).ToString("#");
+            {
+                frm.Meters = (int)(result.Pixels * double.Parse(MultiplierTextBox.Text));
+                frm.Azimuth = result.Azimuth;
+            }               
         }
 
         private void MultiplierTextBox_TextChanged(object sender, EventArgs e)
@@ -51,6 +55,7 @@ namespace CursorDistance
             if (frm == null)
             {
                 frm = new Overlay();
+                frm.isShowAzimuth = IsAzimuthShowingCheckBox.Checked;
                 frm.Show();
                 OverlayButton.Text = "Overlay ON";
                 OverlayButton.BackColor = Color.Green;
@@ -80,7 +85,7 @@ namespace CursorDistance
             service.EnableMiddleClick = MiddleMouseButtonCheckbox.Checked;
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (frm != null)
             {
@@ -89,7 +94,7 @@ namespace CursorDistance
             }
         }
 
-        private void MuktiplierTextbox_KeyPress(object sender, KeyPressEventArgs e)
+        private void MultiplierTextbox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
             (e.KeyChar != '.'))
@@ -101,6 +106,14 @@ namespace CursorDistance
             if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void IsAzimuthShowingCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (frm != null)
+            {
+                frm.isShowAzimuth = IsAzimuthShowingCheckBox.Checked;
             }
         }
     }

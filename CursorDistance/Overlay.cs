@@ -4,7 +4,10 @@ namespace CursorDistance
 {
     public partial class Overlay : Form
     {
-        public string meters = "1";
+        public int Meters { get; set; } = 0;
+        public double Azimuth { get; set; } = 90d;
+        public int FontSize { get; set; } = 20;
+        public bool isShowAzimuth { get; set; } = true;
         public Overlay()
         {
             InitializeComponent();
@@ -34,8 +37,7 @@ namespace CursorDistance
             int initialStyle = GetWindowLong(this.Handle, -20);
             SetWindowLong(this.Handle, -20, initialStyle | 0x80000 | 0x20);
             this.TopMost = true;
-            MainForm.CheckForIllegalCrossThreadCalls = false;
-            Overlay.CheckForIllegalCrossThreadCalls = false;
+            CheckForIllegalCrossThreadCalls = false;
             Thread PrePaintThread = new Thread(new ThreadStart(PaintJobStart));
             PrePaintThread.Start();
         }
@@ -53,11 +55,14 @@ namespace CursorDistance
         private void Draw(Graphics g)
         {
             /* Make a new font object for drawing */
-            Font bigFont = new Font("Arial", 20);
+            Font bigFont = new Font("Arial", FontSize);
             /* Make a colored brush for drawing text */
             Brush mybrush = new SolidBrush(Color.White);
             /* Draw 'Hello, World' at position 50, 50 of the game window */
-            g.DrawString(meters, bigFont, mybrush, Screen.PrimaryScreen.Bounds.Width/2, Screen.PrimaryScreen.Bounds.Height/5);
+            Point pos = new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height / 5);
+            g.DrawString(Meters.ToString(), bigFont, mybrush, pos.X,pos.Y );
+            if(isShowAzimuth) 
+                g.DrawString(Azimuth.ToString("#.#") + "º", bigFont, mybrush, pos.X, pos.Y + FontSize+4);
         }
 
         private void Overlay_Paint(object sender, PaintEventArgs e)
